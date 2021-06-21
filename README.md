@@ -5,6 +5,7 @@ A satirical game
 Clone the repository.
 Go to the folder and run:
   >  npm install
+  
 Once the node modules are installed, run:
 > npm start
 
