@@ -2,6 +2,7 @@
   "name": "aliens-go-home-part-1",
   "version": "0.1.0",
   "private": true,
+  "engines" : { "node" : ">=0.12" },
   "dependencies": {
     "auth0-web": "^1.6.1",
     "prop-types": "^15.6.0",
