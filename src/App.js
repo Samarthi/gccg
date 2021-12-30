@@ -6,6 +6,7 @@ import * as Auth0 from 'auth0-web';
 import io from 'socket.io-client';
 import s from './gccg.mp3';
 import ReactAudioPlayer from 'react-audio-player';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation'
 
 Auth0.configure({
   domain: 'digituz-corp.auth0.com',
@@ -90,19 +91,34 @@ class App extends Component {
 
   render() {
     return (
-      <g>
-      <Canvas
-        angle={this.props.angle}
-        currentPlayer={this.props.currentPlayer}
-        gameState={this.props.gameState}
-        players={this.props.players}
-        startGame={this.props.startGame}
-        trackMouse={event => (this.trackMouse(event))}
-        shoot={this.shoot}
-        
-      />
-      <ReactAudioPlayer  src={s}  autoPlay loop/>
-      </g>
+      
+      <DeviceOrientation lockOrientation={'landscape'}>
+        <Orientation orientation='landscape' alwaysRender={false}>
+          <div>
+            <g>
+              <Canvas
+                angle={this.props.angle}
+                currentPlayer={this.props.currentPlayer}
+                gameState={this.props.gameState}
+                players={this.props.players}
+                startGame={this.props.startGame}
+                trackMouse={event => (this.trackMouse(event))}
+                shoot={this.shoot}
+              />
+              
+              <ReactAudioPlayer  src={s}  autoPlay loop/>
+            </g>
+          </div>
+         
+        </Orientation>
+        <Orientation orientation='portrait'>
+          <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh', fontFamily: '"Cabin Sketch", cursive', fontSize: 40,
+      fill: '#ff7800',}}>
+            <h1>Please rotate your device</h1>
+          </div>
+        </Orientation>
+      </DeviceOrientation>
+      
     );
   }
 }
