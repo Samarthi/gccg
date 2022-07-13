@@ -13,6 +13,7 @@ Once the node modules are installed, run:
 > npm start
 
 Voila! You should see the game start in your local browser.
-
+<!--
 # Also find the live app at
 https://gocoronacoronago.herokuapp.com/
+--!>
